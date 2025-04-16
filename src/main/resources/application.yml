@@ -1,0 +1,64 @@
+server:
+  port: ${PORT:0}
+#   //port no is passed from cmd if not random port no
+
+spring:
+  application:
+    name: USER-SERVICE
+  devtools:
+    restart:
+      enabled: true
+  h2:
+    console:
+      path: /h2-console
+      enabled: true
+      settings:
+        web-allow-others: true
+
+  datasource:
+    url: jdbc:h2:file:D:/database-write/test;AUTO_RECONNECT=TRUE;DB_CLOSE_DELAY=-1;AUTO_SERVER=TRUE
+    username: sa
+    password: password
+    driverClassName: org.h2.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate.ddl-auto: create-drop
+  #    driver-class-name: com.mysql.cj.jdbc.Driver
+  #    url: jdbc:mysql://localhost:3306/photo_shop
+  #    username: root
+  #    password: root
+  #  jpa:
+  #    database: MYSQL
+  #    show-sql: true
+  #    hibernate:
+  #      ddl-auto: create-drop
+  #      dialect: org.hibernate.dialect.MySQLDialect
+  #      generate-ddl: true
+  #    properties:
+  #      hibernate:
+  #        jdbc:
+  #         '[batch_size]' : 20
+  #        cache:
+  #          '[use_query_cache]': false
+  #          '[use_second_level_cache]': false
+  #          '[use_structured_entries]': false
+  #          '[use_minimal_puts]': false
+  #
+  #  zipkin:
+  #    base-url: http://127.0.0.1:9411/zipkin/
+
+
+token:
+  expiration_time: 10000
+  secret: piyush
+
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+  instance:
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+
+ 
+
