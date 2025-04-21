@@ -1,19 +1,16 @@
 package com.prodev.user.userservice.service;
 
-import java.util.ArrayList;
-import java.util.UUID;
-
+import com.prodev.user.userservice.model.User;
+import com.prodev.user.userservice.model.request.UserResponseModel;
+import com.prodev.user.userservice.model.response.UserResponseEntity;
+import com.prodev.user.userservice.repository.UserRepository;
+import com.prodev.user.userservice.utility.ModelMapper;
 import com.prodev.user.userservice.utility.UserDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.prodev.user.userservice.model.User;
-import com.prodev.user.userservice.model.request.UserRequestModel;
-import com.prodev.user.userservice.model.request.UserResponseModel;
-import com.prodev.user.userservice.model.response.UserResponseEntity;
-import com.prodev.user.userservice.repository.UserRepository;
-import com.prodev.user.userservice.utility.ModelMapper;
+import java.util.UUID;
 
 @Service
 public class UserServiceImpl implements UserService {

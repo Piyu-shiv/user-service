@@ -4,8 +4,6 @@ import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
-import aj.org.objectweb.asm.Type;
-
 public class ModelMapper<T, F> {
 
     public ModelMapper() {
@@ -30,7 +28,6 @@ public class ModelMapper<T, F> {
                         System.out.println("it is comming here" + f1.getName().substring(0, 1).toUpperCase() + f1.getName().substring(1));
                         Method method1 = obj1.getDeclaredMethod("get" + capitalizeString(f1.getName()));
                         Method method2 = obj2.getDeclaredMethod("set" + capitalizeString(f2.getName()), f1.getType());
-//				System.out.println("it is comming here"+f1.getName().substring(0, 1).toUpperCase()+f1.getName().substring(1));
                         try {
                             method2.invoke(t, method1.invoke(f));
                         } catch (IllegalAccessException e) {
