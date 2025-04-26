@@ -7,9 +7,12 @@ import com.prodev.user.userservice.repository.UserRepository;
 import com.prodev.user.userservice.utility.ModelMapper;
 import com.prodev.user.userservice.utility.UserDTO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.UUID;
 
 @Service
@@ -77,7 +80,7 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public UserResponseEntity getUserByPhoneNo(String phoneNo) {
 		// TODO Auto-generated method stub
-
+		response=new UserResponseEntity();
 		user=repository.findByPhoneNo(phoneNo);
 		System.out.println("printing user fetched...."+user);
 		userResponse =new UserResponseModel();
@@ -100,24 +103,23 @@ public class UserServiceImpl implements UserService {
 	}
 
 
+	@Override
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		// TODO Auto-generated method stub
 
-//	@Override
-//	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-//		// TODO Auto-generated method stub
-//
-//		User user=repository.findByPhoneNo(username);
-//		if(user==null) throw new UsernameNotFoundException("User is not there id DB");
-//
-//		return new org.springframework.security.core.userdetails.User(user.getPhoneNo(), user.getEncryptedPassword(), true,true,true, true, new ArrayList<>());
-//		//		response=new UserResponseEntity();
-//		//
-//		//		response.setUser(null);
-//		//		if(null!=userDetails.getUsername()) {
-//		//		response.setResponseMsg("SUCCESS");
-//		//
-//		//		response.setSuccess(true);
-//		//	}
-//		//	return
-//	}
+		User user=repository.findByPhoneNo(username);
+		if(user==null) throw new UsernameNotFoundException("User is not there id DB");
+
+		return new org.springframework.security.core.userdetails.User(user.getPhoneNo(), user.getEncryptedPassword(), true,true,true, true, new ArrayList<>());
+		//		response=new UserResponseEntity();
+		//
+		//		response.setUser(null);
+		//		if(null!=userDetails.getUsername()) {
+		//		response.setResponseMsg("SUCCESS");
+		//
+		//		response.setSuccess(true);
+		//	}
+		//	return
+	}
 
 }

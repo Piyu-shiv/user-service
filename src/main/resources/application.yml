@@ -14,7 +14,7 @@ spring:
       enabled: true
       settings:
         web-allow-others: true
-#  AUTO_RECONNECT=TRUE;DB_CLOSE_DELAY=-1;AUTO_SERVER=TRUE
+  #  AUTO_RECONNECT=TRUE;DB_CLOSE_DELAY=-1;AUTO_SERVER=TRUE
   datasource:
     url: jdbc:h2:file:D:/database-write/test;
     username: sa
@@ -22,7 +22,7 @@ spring:
     driverClassName: org.h2.Driver
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect
-    hibernate.ddl-auto: create-drop
+    hibernate.ddl-auto: update
   #    driver-class-name: com.mysql.cj.jdbc.Driver
   #    url: jdbc:mysql://localhost:3306/photo_shop
   #    username: root
@@ -49,9 +49,12 @@ spring:
 
 
 token:
-  expiration_time: 10000
-  secret: piyush
+  expiration_time: 1000000
+  secret: piyushpiyushpiyushpiyushpiyushpiyushpiyushpiyushpiyushpiyushpiyushpiyushpiyushpiyushpiyushpiyushpiyushpiyushpiyushpiyushpiyushpiyushpiyushpiyushpiyushpiyushpiyushpiyushpiyushpiyushpiyushpiyushpiyushpiyushpiyushpiyushpiyushpiyushpiyushpiyush
 
+login:
+  url:
+    path: /user/login
 
 eureka:
   client:

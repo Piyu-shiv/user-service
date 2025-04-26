@@ -1,6 +1,7 @@
 package com.prodev.user.userservice.controller;
 
 
+import com.prodev.user.userservice.model.request.UserLoginModel;
 import com.prodev.user.userservice.service.UserService;
 import com.prodev.user.userservice.utility.ModelMapper;
 import com.prodev.user.userservice.utility.UserDTO;
@@ -24,7 +25,7 @@ import com.prodev.user.userservice.model.response.UserResponseEntity;
 
 
 @RestController
-@RequestMapping("/public/v1/ecom/user")
+@RequestMapping("/users/")
 public class UserController {
 
     @Autowired
@@ -60,14 +61,14 @@ public class UserController {
 //
 //	
 //	@ResponseBody
-//	@PostMapping(value="/login",consumes = MediaType.APPLICATION_JSON_VALUE,produces = {MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_XML_VALUE})	
+//	@PostMapping(value="/login",consumes = MediaType.APPLICATION_JSON_VALUE,produces = {MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_XML_VALUE})
 //	@ResponseStatus(code = HttpStatus.CREATED)
 //	public UserResponseEntity userLogin(@RequestBody UserLoginModel cred){
 //		System.out.println("came in user controlller  login post method"+cred);
 //	return userService.getUserByPhoneNo(cred.getPhoneNo());
 ////		return userService.loadUserByUsername(cred.getPhoneNo());
-//		
+//
 //	}
-//	
+
 
 }

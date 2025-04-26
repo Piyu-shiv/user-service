@@ -31,6 +31,14 @@ public class UserDTO implements Serializable {
         this.phoneNo = phoneNo;
     }
 
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
     public String getId() {
         return userId;
     }
